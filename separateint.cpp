@@ -14,6 +14,7 @@ using namespace std;//standard
 
 void separateDigits(int);
 int isNegative(int);
+void isZero(int);
 
 int main()
 {
