@@ -9,7 +9,8 @@ void SonKonumuBas(char[8][8]);
 int main(){
 	char kaleKonumu[8][8];//satranc tahtam
 	int sayac = 0;
-	int rastgeleKonum;
+	int rastgeleKonumX;
+	int rastgeleKonumY;
 	
 	for(int a=0; a<8; a++){
 		for(int b=0; b<8; b++){
@@ -19,16 +20,18 @@ int main(){
 	srand(time(0));//rastgelelik sagla
 	
 	while(sayac != 8){
-		rastgeleKonum = rand() % (8);
-		if(KonumuKontrolEt(kaleKonumu, sayac, rastgeleKonum)){
+		rastgeleKonumX = rand() % (8);
+		rastgeleKonumY = rand() % (8);
+		if(KonumuKontrolEt(kaleKonumu, rastgeleKonumY, rastgeleKonumX)){
 			//yatayda veya dikeyde bir kale var
 		}else{
-			kaleKonumu[sayac][rastgeleKonum] = 'K';
+			kaleKonumu[rastgeleKonumY][rastgeleKonumX] = 'K';
 			sayac++;
 			cout << endl <<endl << sayac << endl;
 			SonKonumuBas(kaleKonumu);
 		}
 	}
+	cin >> sayac;
 	return 0;
 }
 
