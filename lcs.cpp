@@ -18,6 +18,7 @@ void MatriseDikeyAta(short [tabloBoyutu][tabloBoyutu], string, short);
 void MatriseYatayAta(short [tabloBoyutu][tabloBoyutu], string, short);
 void MatrisiBas(short [tabloBoyutu][tabloBoyutu], short, short);
 void LCS(short [tabloBoyutu][tabloBoyutu], short, short);
+void GetReverseSubstring(short [tabloBoyutu][tabloBoyutu], short, short);
 
 int main(){
 	string katar1, katar2;//i will compare both of them
@@ -35,6 +36,7 @@ int main(){
 	LCS(tablo, katar1.length(), katar2.length());
 	cout << endl << endl;
 	MatrisiBas(tablo, katar1.length()+1, katar2.length()+1);
+	GetReverseSubstring(tablo, katar1.length()+1, katar2.length()+1);
 	return 0;
 }
 
@@ -77,6 +79,24 @@ void LCS (short matris[tabloBoyutu][tabloBoyutu], short yatay, short dikey){
 				}else{
 					matris[j][i] = matris[j][i-1];
 				}
+			}
+		}
+	}
+}
+
+void GetReverseSubstring(short matris[tabloBoyutu][tabloBoyutu], short dikey, short yatay){
+	cout << "\nReverse Substring: ";
+	while(matris[yatay][dikey] != 0){
+		//cout << "yatay: "<<yatay <<"  dikey: "<< dikey << endl;
+		if(matris[yatay][dikey] > matris[yatay-1][dikey] && matris[yatay][dikey] > matris[yatay][dikey-1]){
+			cout << (char)matris[yatay][0];
+			yatay--;
+			dikey--;
+		}else{
+			if(matris[yatay][dikey] == matris[yatay-1][dikey]){
+				yatay--;
+			}else{
+				dikey--;
 			}
 		}
 	}
