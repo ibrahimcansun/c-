@@ -24,7 +24,7 @@ int main(){
 	do{
 		cout << "Please write your cc numbers: ";
 		cin >> ccnumbers;
-	}while(ccnumbers.length() != 16);
+	}while(ccnumbers.length() != cc);
 	
 	NumbersToNums(cc, ccnumbers, ccnums);//changing
 	
